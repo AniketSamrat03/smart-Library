@@ -18,7 +18,7 @@ function UpdateBookComponent() {
     var orginalBookdata = {}
     async function fetchBook(){
         try{
-const  response = await axios.get(`${BASE_URL}get-book/${id}`)
+const  response = await axios.get(`${BASE_URL}/get-book/${id}`)
  const fetchedbookData = response.data.fetchedBook;
  orginalBookdata =fetchedbookData;
  console.log(orginalBookdata)
