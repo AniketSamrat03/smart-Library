@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import FunctionBtn from '../Header/FunctionBtn';
+import FunctionBtn from '../FunctionBtn';
 import { UserSidebarData, AdminSidebarData } from './sideBarData';
 
 function SideBar({ isSidebarOpen, setIsSidebarOpen }) {

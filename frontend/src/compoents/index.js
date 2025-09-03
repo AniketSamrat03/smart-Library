@@ -1,7 +1,7 @@
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
 import SideBar from "./Sidebar/Sidebar";
-import FunctionBtn from "./Header/FunctionBtn";
+import FunctionBtn from "./FunctionBtn";
 import Logo from "./Logo";
 import { UserSidebarData,AdminSidebarData } from "./Sidebar/sideBarData";
 import Input from "./Input";
