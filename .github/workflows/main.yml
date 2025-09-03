@@ -47,19 +47,19 @@ jobs:
       # BACKEND SETUP
       # ------------------------------
       - name: Install backend dependencies
-        if: steps.changes.outputs.backend-deps == 'true'
+        
         working-directory: ./backend
         run: npm install
 
       - name: Create backend .env file
-        if: steps.changes.outputs.backend == 'true'
+       
         working-directory: ./backend
         run: |
           touch .env
           echo "${{ secrets.PROD_BACKEND_ENV }}" > .env
 
       - name: Start backend with PM2
-        if: steps.changes.outputs.backend == 'true'
+        
         working-directory: ./backend
         run: |
           /home/ubuntu/.nvm/versions/node/v22.19.0/bin/pm2 restart backend || /home/ubuntu/.nvm/versions/node/v22.19.0/bin/pm2 start server.js --name backend
