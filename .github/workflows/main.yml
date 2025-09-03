@@ -75,7 +75,7 @@ jobs:
           npm cache clean --force
 
       - name: Install frontend dependencies
-        if: steps.changes.outputs.frontend-deps == 'true'
+        
         working-directory: ./frontend
         run: npm install --include=dev
 
