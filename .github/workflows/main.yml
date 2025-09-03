@@ -77,7 +77,7 @@ jobs:
       - name: Install frontend dependencies
         if: steps.changes.outputs.frontend-deps == 'true'
         working-directory: ./frontend
-        run: npm install
+        run: npm install --include=dev
 
       - name: Create frontend .env file
         if: steps.changes.outputs.frontend == 'true'
