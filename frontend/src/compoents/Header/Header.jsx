@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '../container/container';
 import Logo from '../Logo';
-import FunctionBtn from './FunctionBtn';
+import {FunctionBtn} from '../index.js';
 function Header({ isSidebarOpen }) {
  
   return (
