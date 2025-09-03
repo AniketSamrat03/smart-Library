@@ -1,13 +1,14 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+
 // Async thunk for submitting the book form
 export const submitBookForm = createAsyncThunk(
   
   "bookForm/submitBookForm",
   async (_, { getState, rejectWithValue }) => {
     try {
-      const uploadeupdatedBookUrl=import.meta.env.VITE_APP_GET_ALL_BOOKS_URL
+      const baseUrl=import.meta.env.VITE_APP_BASE_URL
       const state = getState().bookForm;
       const formData = new FormData();
       formData.append("bookName", state.bookName);
@@ -15,7 +16,7 @@ export const submitBookForm = createAsyncThunk(
       if (state.imageFile) formData.append("imageFile", state.imageFile);
       if (state.pdfFile) formData.append("bookFile", state.pdfFile);
 
-      const response = await axios.post(uploadeupdatedBookUrl, formData, {
+      const response = await axios.post(`${baseUrl}/uploadBook`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
