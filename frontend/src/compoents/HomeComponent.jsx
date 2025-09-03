@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import HomeCard from './HomeCard';
-
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 function HomeComponent() {
+ 
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [hasMore, setHasMore] = useState(true);
@@ -14,7 +15,7 @@ function HomeComponent() {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/all-books');
+      const res = await axios.get(`${BASE_URL}/all-books`);
       const booksArray = res.data?.AllBooksAvailable.booksWithUrls || [];
       
       if (booksArray.length === 0) {

@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import Container from "./container/container.jsx";
 import { Input } from "./index.js";
 import axios from "axios";
-
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
 function UpdateBookComponent() {
     const {id} =useParams()
@@ -18,7 +18,7 @@ function UpdateBookComponent() {
     var orginalBookdata = {}
     async function fetchBook(){
         try{
-const  response = await axios.get(`http://localhost:5000/api/get-book/${id}`)
+const  response = await axios.get(`${BASE_URL}get-book/${id}`)
  const fetchedbookData = response.data.fetchedBook;
  orginalBookdata =fetchedbookData;
  console.log(orginalBookdata)

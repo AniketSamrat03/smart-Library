@@ -4,6 +4,7 @@ import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ViewBooksCard from './ViewBooksCard';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 function ViewBooksComponent() {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +22,7 @@ function ViewBooksComponent() {
     try {
       // show loader on the deleting book
       console.log("by clicking delete button",id)
-      const response = await axios.delete(`http://localhost:5000/api/delete-book/${id}`)
+      const response = await axios.delete(`${BASE_URL}/delete-book/${id}`)
       if(response.status ===200){
         fetchBooks()
       }
@@ -43,7 +44,7 @@ function ViewBooksComponent() {
   const fetchBooks = async (reset = false) => {
     try {
       if (reset) setLoading(true); // show main loader if resetting
-      const res = await axios.get('http://localhost:5000/api/all-books');
+      const res = await axios.get(`${BASE_URL}/all-books`);
       const booksArray = res.data?.AllBooksAvailable.booksWithUrls || [];
 
       if (booksArray.length === 0) {
