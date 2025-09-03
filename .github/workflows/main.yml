@@ -68,7 +68,7 @@ jobs:
       # FRONTEND SETUP
       # ------------------------------
       - name: Clean npm cache & remove existing dependencies
-        if: steps.changes.outputs.frontend-deps == 'true'
+     
         working-directory: ./frontend
         run: |
           rm -rf node_modules package-lock.json
@@ -80,7 +80,7 @@ jobs:
         run: npm install --include=dev
 
       - name: Create frontend .env file
-        if: steps.changes.outputs.frontend == 'true'
+     
         working-directory: ./frontend
         run: |
           touch .env
@@ -92,7 +92,7 @@ jobs:
         run: npm run build
 
       - name: Deploy frontend to Nginx
-        if: steps.changes.outputs.frontend == 'true'
+        
         run: |
           sudo rm -rf /var/www/html/*
           sudo cp -r ./frontend/dist/* /var/www/html/
