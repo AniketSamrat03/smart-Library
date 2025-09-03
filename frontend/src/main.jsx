@@ -12,7 +12,7 @@ import ViewsBooks from './pages/ViewBooks.jsx'
 import Dashboard from './pages/DashBoard.jsx'
 import AddBook from './pages/AddBook.jsx'
 import BookQuiz from './pages/BookQuizes.jsx'
-import { AuthProvider } from '@descope/react-sdk'
+
 import Signup from './pages/Signup.jsx'
 import confg from './confg/confg.js'
 import { store } from './store/store.js'
@@ -69,11 +69,11 @@ const router = createBrowserRouter([{
 
 createRoot(document.getElementById('root')).render(
  
-    <AuthProvider projectId={confg.projectId}>
+    
       <Provider store={store}>
     
      <RouterProvider router={router }/>
      </Provider>
-    </AuthProvider>
+
   
 )
