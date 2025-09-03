@@ -7,13 +7,16 @@ import cors from "cors";
 
 const app = express()
 dotenv.config()
-app.use(express.json())
+app.use(express.json({ limit: '300mb' }));  
 app.use(cors({
   origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
-app.use(express.urlencoded({extended:true}))
+      // for JSON requests
+app.use(express.urlencoded({ limit: '300mb', extended: true })); // for form submissions
+
+
 app.use('/api',router)
 const PORT = process.env.PORT ;
 app.listen(PORT,()=>{
