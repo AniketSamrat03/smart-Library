@@ -87,7 +87,7 @@ jobs:
           echo "${{ secrets.PROD_FRONTEND_ENV }}" > .env
 
       - name: Build frontend
-        if: steps.changes.outputs.frontend == 'true'
+        
         working-directory: ./frontend
         run: npm run build
 
