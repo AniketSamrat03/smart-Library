@@ -10,7 +10,7 @@ import { Footer, Header, SideBar } from './compoents'
 function App() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   return (
-    <div className="min-h-screen bg-[#DDF4E7] flex flex-col">
+    <div className="min-h-screen bg-[#065e2c] flex flex-col">
       <Header isSidebarOpen={isSidebarOpen} /> {/* Stays on top */}
       
       <div className="flex flex-1"> {/* Sidebar + Main Content */}
